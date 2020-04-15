@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 namespace BerrasBioWebApp.Models
 {
-    public partial class Films
+    public partial class Film
     {
-        public Films()
+        public Film()
         {
             FilmSchedule = new HashSet<FilmSchedule>();
         }

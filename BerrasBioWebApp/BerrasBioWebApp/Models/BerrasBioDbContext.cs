@@ -16,14 +16,13 @@ namespace BerrasBioWebApp.Models
         }
 
         public virtual DbSet<FilmSchedule> FilmSchedule { get; set; }
-        public virtual DbSet<Films> Films { get; set; }
-        public virtual DbSet<Salons> Salons { get; set; }
+        public virtual DbSet<Film> Films { get; set; }
+        public virtual DbSet<Salon> Salons { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
                 optionsBuilder.UseSqlServer("Server=localhost;Database=BerrasBioDb;Trusted_Connection=True;");
             }
         }
@@ -63,7 +62,7 @@ namespace BerrasBioWebApp.Models
                     .HasConstraintName("FK__FilmSched__salon__403A8C7D");
             });
 
-            modelBuilder.Entity<Films>(entity =>
+            modelBuilder.Entity<Film>(entity =>
             {
                 entity.Property(e => e.Id).HasColumnName("id");
 
@@ -79,7 +78,7 @@ namespace BerrasBioWebApp.Models
                 entity.Property(e => e.Year).HasColumnName("year");
             });
 
-            modelBuilder.Entity<Salons>(entity =>
+            modelBuilder.Entity<Salon>(entity =>
             {
                 entity.Property(e => e.Id).HasColumnName("id");
 

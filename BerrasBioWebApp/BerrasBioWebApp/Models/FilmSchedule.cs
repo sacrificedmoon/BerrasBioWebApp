@@ -13,7 +13,7 @@ namespace BerrasBioWebApp.Models
         public int Freechairs { get; set; }
         public bool Fullybooked { get; set; }
 
-        public virtual Films Film { get; set; }
-        public virtual Salons Salon { get; set; }
+        public virtual Film Film { get; set; }
+        public virtual Salon Salon { get; set; }
     }
 }
