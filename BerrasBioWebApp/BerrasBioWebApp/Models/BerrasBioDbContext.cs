@@ -16,8 +16,8 @@ namespace BerrasBioWebApp.Models
         }
 
         public virtual DbSet<FilmSchedule> FilmSchedule { get; set; }
-        public virtual DbSet<Film> Films { get; set; }
-        public virtual DbSet<Salon> Salons { get; set; }
+        public virtual DbSet<Film> Film { get; set; }
+        public virtual DbSet<Salon> Salon { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

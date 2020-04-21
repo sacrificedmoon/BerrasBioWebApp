@@ -14,18 +14,10 @@ namespace BerrasBioWebApp.Pages
     public class IndexModel : PageModel
     {
         private readonly ILogger<IndexModel> _logger;
-        private readonly BerrasBioDbContext _db;
 
-        public IndexModel(ILogger<IndexModel> logger, BerrasBioDbContext db)
+        public IndexModel(ILogger<IndexModel> logger)
         {
             _logger = logger;
-            _db = db;
-        }
-
-        public IEnumerable Films { get; set; }
-        public async Task OnGet()
-        {
-            Films = await _db.Films.ToListAsync();
         }
     }
 }
