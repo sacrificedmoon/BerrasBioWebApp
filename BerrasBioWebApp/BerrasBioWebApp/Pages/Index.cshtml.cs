@@ -14,10 +14,11 @@ namespace BerrasBioWebApp.Pages
     public class IndexModel : PageModel
     {
         private readonly ILogger<IndexModel> _logger;
-
-        public IndexModel(ILogger<IndexModel> logger)
+        private readonly BerrasBioDbContext _db;
+        public IndexModel(ILogger<IndexModel> logger, BerrasBioDbContext db)
         {
             _logger = logger;
+            _db = db;
         }
     }
 }

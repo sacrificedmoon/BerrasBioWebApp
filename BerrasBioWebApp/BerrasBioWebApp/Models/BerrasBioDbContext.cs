@@ -19,14 +19,6 @@ namespace BerrasBioWebApp.Models
         public virtual DbSet<Film> Film { get; set; }
         public virtual DbSet<Salon> Salon { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            if (!optionsBuilder.IsConfigured)
-            {
-                optionsBuilder.UseSqlServer("Server=localhost;Database=BerrasBioDb;Trusted_Connection=True;");
-            }
-        }
-
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<FilmSchedule>(entity =>
