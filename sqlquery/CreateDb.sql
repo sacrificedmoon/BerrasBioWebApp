@@ -1,6 +1,8 @@
+use [BerrasBioDb]
+
 GO
 
-INSERT INTO Films
+INSERT INTO Film
 VALUES	('Casino Royale ', 1954, '01:00'),
 		('Goldenfinger', 1964, '01:50'),
 		('Live and Let Die', 1973, '02:00'),
@@ -10,7 +12,7 @@ VALUES	('Casino Royale ', 1954, '01:00'),
 
 GO
 
-INSERT INTO Salons
+INSERT INTO Salon
 VALUES	('Saga', 50),
 		('Scala', 100);
 
