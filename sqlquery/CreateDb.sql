@@ -1,35 +1,3 @@
-create database BerrasBioDb
-
-GO
-
-use BerrasBioDb
-
-GO
-
-create table Films (
-	id int not null primary key identity(1,1),
-	title nvarchar(50) not null,
-	year int not null,
-	length time(0) not null);
-
-GO
-
-create table Salons (
-	id int not null primary key identity(1,1),
-	name nvarchar(50) not null,
-	seats int not null);
-
-GO
-
-create table FilmSchedule (
-	id int not null primary key identity(1,1),
-	filmid int not null foreign key references Films(id),
-	salonid int not null foreign key references Salons(id),
-	date date not null,
-	showtime time(0) not null,
-	freechairs int not null,
-	fullybooked bit not null);
-
 GO
 
 INSERT INTO Films
