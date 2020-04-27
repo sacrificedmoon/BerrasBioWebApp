@@ -1,10 +1,25 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "Berras Bio";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Filmlist</h1>
-    <p>All of the daily films.</p>
-</div>
+    <div class="text-center">
+        <h1 class="display-4 text-center">Today's Films</h1>
+        <br />
+        <br />
+        <div class="container">
+            <div class="col-12 border">
+                <form method="post">
+                    @if (Model.FilmSchedule.Count() > 0)
+                    {
+                        
+                    }
+                    else
+                    {
+                        <p>No films today!</p>
+                    }
+                </form>
+            </div>
+        </div>
+    </div>

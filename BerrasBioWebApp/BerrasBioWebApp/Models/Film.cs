@@ -1,20 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
-namespace BerrasBioWebApp.Models
+namespace BerrasBioWebApp
 {
     public partial class Film
     {
-        public Film()
-        {
-            FilmSchedule = new HashSet<FilmSchedule>();
-        }
-
+        [Key]
         public int Id { get; set; }
+        [Required] 
         public string Title { get; set; }
+        [Required] 
         public int Year { get; set; }
+        [Required] 
         public TimeSpan Length { get; set; }
 
-        public virtual ICollection<FilmSchedule> FilmSchedule { get; set; }
+        public ICollection<FilmSchedule> FilmSchedule { get; set; }
     }
 }
