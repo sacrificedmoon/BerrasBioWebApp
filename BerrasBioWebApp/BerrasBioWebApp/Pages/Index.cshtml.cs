@@ -6,12 +6,15 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
+
 namespace BerrasBioWebApp.Pages
 {
     public class IndexModel : PageModel
     {
         private readonly ILogger<IndexModel> _logger;
         private readonly BerrasBioDbContext _db;
+        private List<FilmSchedule> AllFS;
+
         public IndexModel(ILogger<IndexModel> logger, BerrasBioDbContext db)
         {
             _logger = logger;
@@ -22,18 +25,20 @@ namespace BerrasBioWebApp.Pages
 
         public async Task OnGet()
         {
-            var AllFS = await _db.FilmSchedule.ToListAsync();
-            FilmSchedule = AllFS.Where(fs => fs.Date == DateTime.Today);
+            AllFS = await _db.FilmSchedule.ToListAsync();
+            if(AllFS.Count() == 0)
+            {
+                await SeedFilmSchedule.Initialize(_db);
+                AllFS = await _db.FilmSchedule.ToListAsync();
+            }
 
-            if (FilmSchedule == null) AddTodayMovies();
-        }
-
-        private void AddTodayMovies()
-        {
-            //new FilmSchedule
-            //{
-
-            //};
+            FilmSchedule = AllFS.Where(fs => fs.ShowTime.Date == DateTime.Today);
+            if (FilmSchedule.Count() == 0)
+            {
+                await SeedFilmSchedule.Initialize(_db);
+                AllFS = await _db.FilmSchedule.ToListAsync();
+                FilmSchedule = AllFS.Where(fs => fs.ShowTime == DateTime.Today);
+            }
         }
     }
 }

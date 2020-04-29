@@ -9,7 +9,7 @@ namespace BerrasBioWebApp
         public int Id { get; set; }
         [Required] 
         public int FilmScheduleId { get; set; }
-        [Required] 
+        [Required]
         public string Name { get; set; }
         [Required] 
         public int PhoneNumber { get; set; }

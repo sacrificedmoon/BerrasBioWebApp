@@ -13,7 +13,43 @@
                 <form method="post">
                     @if (Model.FilmSchedule.Count() > 0)
                     {
-                        
+                        <table class="table table-striped border">
+                            <tr class="table-secondary">
+                                <th>
+                                    <label asp-for="FilmSchedule.FirstOrDefault().Film"></label>
+                                </th>
+                                <th>
+                                    <label asp-for="FilmSchedule.FirstOrDefault().ShowTime"></label>
+                                </th>
+                                <th>
+                                    <label asp-for="FilmSchedule.FirstOrDefault().Salon"></label>
+                                </th>
+                                <th>
+                                    <label asp-for="FilmSchedule.FirstOrDefault().FreeChairs"></label>
+                                </th>
+                                <th></th>
+                            </tr>
+                            @foreach(var item in Model.FilmSchedule)
+                             {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(m => item.Film.Title)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(m => item.ShowTime)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(m => item.Salon.Name)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(m => item.FreeChairs)
+                                    </td>
+                                    <td>
+                                        <a asp-page="Booking" class="btn btn-success btn-sm">Book tickets</a>
+                                    </td>
+                                </tr>
+                             }
+                        </table>
                     }
                     else
                     {

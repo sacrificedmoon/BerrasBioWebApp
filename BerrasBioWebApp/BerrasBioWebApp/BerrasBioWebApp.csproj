@@ -17,6 +17,13 @@
     <Compile Remove="Migrations\20200426234256_AddedDbContextToDb.Designer.cs" />
     <Compile Remove="Migrations\20200426234922_AddedDbContextToDb.cs" />
     <Compile Remove="Migrations\20200426234922_AddedDbContextToDb.Designer.cs" />
+    <Compile Remove="Migrations\20200426235527_AddedDbContextToDb.cs" />
+    <Compile Remove="Migrations\20200426235527_AddedDbContextToDb.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Models\NewFile.txt" />
+    <None Remove="Models\NewFile1.txt" />
   </ItemGroup>
 
   <ItemGroup>

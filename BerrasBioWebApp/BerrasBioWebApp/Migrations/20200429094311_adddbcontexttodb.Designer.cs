@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BerrasBioWebApp.Migrations
 {
     [DbContext(typeof(BerrasBioDbContext))]
-    [Migration("20200426235527_AddedDbContextToDb")]
-    partial class AddedDbContextToDb
+    [Migration("20200429094311_adddbcontexttodb")]
+    partial class adddbcontexttodb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -74,23 +74,20 @@ namespace BerrasBioWebApp.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<DateTime>("Date")
-                        .HasColumnType("datetime2");
-
                     b.Property<int>("Filmid")
                         .HasColumnType("int");
 
-                    b.Property<int>("Freechairs")
+                    b.Property<int>("FreeChairs")
                         .HasColumnType("int");
 
-                    b.Property<bool>("Fullybooked")
+                    b.Property<bool>("IsFullyBooked")
                         .HasColumnType("bit");
 
                     b.Property<int>("Salonid")
                         .HasColumnType("int");
 
-                    b.Property<TimeSpan>("Showtime")
-                        .HasColumnType("time");
+                    b.Property<DateTime>("ShowTime")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
