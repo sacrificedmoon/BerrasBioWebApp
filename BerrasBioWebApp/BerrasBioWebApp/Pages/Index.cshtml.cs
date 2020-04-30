@@ -26,7 +26,6 @@ namespace BerrasBioWebApp.Pages
 
         public async Task OnGet()
         {
-            _db.
             await _db.Film.ToListAsync();
             await _db.Salon.ToListAsync();
             AllFilmSchedules = await _db.FilmSchedule.ToListAsync();
