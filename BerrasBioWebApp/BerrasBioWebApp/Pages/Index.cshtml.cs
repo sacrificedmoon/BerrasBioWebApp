@@ -13,7 +13,7 @@ namespace BerrasBioWebApp.Pages
     {
         private readonly ILogger<IndexModel> _logger;
         private readonly BerrasBioDbContext _db;
-        private List<FilmSchedule> AllFS;
+        private List<FilmSchedule> AllFilmSchedules;
 
         public IndexModel(ILogger<IndexModel> logger, BerrasBioDbContext db)
         {
@@ -21,23 +21,27 @@ namespace BerrasBioWebApp.Pages
             _db = db;
         }
 
-        public IEnumerable<FilmSchedule> FilmSchedule { get; set; }
+        public IEnumerable<FilmSchedule> FilmSchedulesToday { get; set; }
+
 
         public async Task OnGet()
         {
-            AllFS = await _db.FilmSchedule.ToListAsync();
-            if(AllFS.Count() == 0)
+            _db.
+            await _db.Film.ToListAsync();
+            await _db.Salon.ToListAsync();
+            AllFilmSchedules = await _db.FilmSchedule.ToListAsync();
+            if(AllFilmSchedules.Count() == 0)
             {
-                await SeedFilmSchedule.Initialize(_db);
-                AllFS = await _db.FilmSchedule.ToListAsync();
+                await SeedDatabase.SeedDatabaseFirstTime(_db);
+                AllFilmSchedules = await _db.FilmSchedule.ToListAsync();
             }
 
-            FilmSchedule = AllFS.Where(fs => fs.ShowTime.Date == DateTime.Today);
-            if (FilmSchedule.Count() == 0)
+            FilmSchedulesToday = AllFilmSchedules.Where(fs => fs.ShowTime.Date == DateTime.Today);
+            if (FilmSchedulesToday.Count() == 0)
             {
-                await SeedFilmSchedule.Initialize(_db);
-                AllFS = await _db.FilmSchedule.ToListAsync();
-                FilmSchedule = AllFS.Where(fs => fs.ShowTime == DateTime.Today);
+                await SeedDatabase.SeedMovieScheduleToday(_db);
+                AllFilmSchedules = await _db.FilmSchedule.ToListAsync();
+                FilmSchedulesToday = AllFilmSchedules.Where(fs => fs.ShowTime == DateTime.Today);
             }
         }
     }

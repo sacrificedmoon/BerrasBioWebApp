@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace BerrasBioWebApp.Migrations
 {
-    public partial class adddbcontexttodb : Migration
+    public partial class AddedDbContextToDb : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

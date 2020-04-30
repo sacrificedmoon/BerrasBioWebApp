@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BerrasBioWebApp.Migrations
 {
     [DbContext(typeof(BerrasBioDbContext))]
-    [Migration("20200429094311_adddbcontexttodb")]
-    partial class adddbcontexttodb
+    [Migration("20200429231751_AddedDbContextToDb")]
+    partial class AddedDbContextToDb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -120,7 +120,7 @@ namespace BerrasBioWebApp.Migrations
             modelBuilder.Entity("BerrasBioWebApp.Booking", b =>
                 {
                     b.HasOne("BerrasBioWebApp.FilmSchedule", "FilmSchedule")
-                        .WithMany("Booking")
+                        .WithMany("Bookings")
                         .HasForeignKey("FilmScheduleId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -129,13 +129,13 @@ namespace BerrasBioWebApp.Migrations
             modelBuilder.Entity("BerrasBioWebApp.FilmSchedule", b =>
                 {
                     b.HasOne("BerrasBioWebApp.Film", "Film")
-                        .WithMany("FilmSchedule")
+                        .WithMany("FilmSchedules")
                         .HasForeignKey("Filmid")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("BerrasBioWebApp.Salon", "Salon")
-                        .WithMany("FilmSchedule")
+                        .WithMany("FilmSchedules")
                         .HasForeignKey("Salonid")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();

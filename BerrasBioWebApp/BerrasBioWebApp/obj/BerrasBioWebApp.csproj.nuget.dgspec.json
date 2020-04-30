@@ -1,20 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Sofia\\source\\repos\\BerrasBioWebApp\\BerrasBioWebApp\\BerrasBioWebApp\\BerrasBioWebApp.csproj": {}
+    "C:\\Users\\ander\\source\\repos\\BerrasBioWebApp\\BerrasBioWebApp\\BerrasBioWebApp\\BerrasBioWebApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Sofia\\source\\repos\\BerrasBioWebApp\\BerrasBioWebApp\\BerrasBioWebApp\\BerrasBioWebApp.csproj": {
+    "C:\\Users\\ander\\source\\repos\\BerrasBioWebApp\\BerrasBioWebApp\\BerrasBioWebApp\\BerrasBioWebApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Sofia\\source\\repos\\BerrasBioWebApp\\BerrasBioWebApp\\BerrasBioWebApp\\BerrasBioWebApp.csproj",
+        "projectUniqueName": "C:\\Users\\ander\\source\\repos\\BerrasBioWebApp\\BerrasBioWebApp\\BerrasBioWebApp\\BerrasBioWebApp.csproj",
         "projectName": "BerrasBioWebApp",
-        "projectPath": "C:\\Users\\Sofia\\source\\repos\\BerrasBioWebApp\\BerrasBioWebApp\\BerrasBioWebApp\\BerrasBioWebApp.csproj",
-        "packagesPath": "C:\\Users\\Sofia\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Sofia\\source\\repos\\BerrasBioWebApp\\BerrasBioWebApp\\BerrasBioWebApp\\obj\\",
+        "projectPath": "C:\\Users\\ander\\source\\repos\\BerrasBioWebApp\\BerrasBioWebApp\\BerrasBioWebApp\\BerrasBioWebApp.csproj",
+        "packagesPath": "C:\\Users\\ander\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ander\\source\\repos\\BerrasBioWebApp\\BerrasBioWebApp\\BerrasBioWebApp\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Sofia\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ander\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -83,7 +86,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.200\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
         }
       }
     }
