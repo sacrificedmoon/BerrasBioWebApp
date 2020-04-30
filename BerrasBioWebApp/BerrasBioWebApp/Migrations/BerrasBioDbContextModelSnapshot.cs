@@ -118,7 +118,7 @@ namespace BerrasBioWebApp.Migrations
             modelBuilder.Entity("BerrasBioWebApp.Booking", b =>
                 {
                     b.HasOne("BerrasBioWebApp.FilmSchedule", "FilmSchedule")
-                        .WithMany("Bookings")
+                        .WithMany("Booking")
                         .HasForeignKey("FilmScheduleId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -127,13 +127,13 @@ namespace BerrasBioWebApp.Migrations
             modelBuilder.Entity("BerrasBioWebApp.FilmSchedule", b =>
                 {
                     b.HasOne("BerrasBioWebApp.Film", "Film")
-                        .WithMany("FilmSchedules")
+                        .WithMany("FilmSchedule")
                         .HasForeignKey("Filmid")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("BerrasBioWebApp.Salon", "Salon")
-                        .WithMany("FilmSchedules")
+                        .WithMany("FilmSchedule")
                         .HasForeignKey("Salonid")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();

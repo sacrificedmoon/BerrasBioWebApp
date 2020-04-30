@@ -11,6 +11,6 @@ namespace BerrasBioWebApp
         public string Name { get; set; }
         [Required]
         public int Seats { get; set; }
-        public virtual ICollection<FilmSchedule> FilmSchedules { get; set; }
+        public virtual ICollection<FilmSchedule> FilmSchedule { get; set; }
     }
 }

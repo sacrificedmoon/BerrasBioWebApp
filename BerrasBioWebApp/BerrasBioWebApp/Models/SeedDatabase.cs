@@ -124,6 +124,7 @@ namespace BerrasBioWebApp
                 }
             );
 
+            await db.SaveChangesAsync();
             await SeedMovieScheduleToday(db);
         }
 
