@@ -26,9 +26,7 @@ namespace BerrasBioWebApp.Pages
 
         public async Task OnGet()
         {
-            await _db.Film.ToListAsync();
-            await _db.Salon.ToListAsync();
-            AllFilmSchedules = await _db.FilmSchedule.ToListAsync();
+            AllFilmSchedules = await _db.FilmSchedule.Include(fs => fs.Film).Include(fs => fs.Salon).ToListAsync();
             if(AllFilmSchedules.Count() == 0)
             {
                 await SeedDatabase.SeedDatabaseFirstTime(_db);
