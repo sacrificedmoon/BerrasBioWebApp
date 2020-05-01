@@ -13,8 +13,10 @@ namespace BerrasBioWebApp
         [Required]
         public int Salonid { get; set; }
         [Required]
+        [Display(Name = "Tid")]
         public DateTime ShowTime { get; set; }
         [Required]
+        [Display(Name = "Lediga platser")]
         public int FreeChairs { get; set; }
         [Required]
         public bool IsFullyBooked { get; set; }

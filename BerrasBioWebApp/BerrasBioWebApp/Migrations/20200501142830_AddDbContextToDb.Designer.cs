@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BerrasBioWebApp.Migrations
 {
     [DbContext(typeof(BerrasBioDbContext))]
-    [Migration("20200430073340_AddedDbContextToDb")]
-    partial class AddedDbContextToDb
+    [Migration("20200501142830_AddDbContextToDb")]
+    partial class AddDbContextToDb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -35,8 +35,12 @@ namespace BerrasBioWebApp.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("PhoneNumber")
+                    b.Property<int>("NumOfTickets")
                         .HasColumnType("int");
+
+                    b.Property<string>("PhoneNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -58,9 +62,6 @@ namespace BerrasBioWebApp.Migrations
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Year")
-                        .HasColumnType("int");
 
                     b.HasKey("Id");
 

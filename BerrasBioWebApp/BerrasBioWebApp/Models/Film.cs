@@ -8,11 +8,11 @@ namespace BerrasBioWebApp
     {
         [Key]
         public int Id { get; set; }
-        [Required] 
+        [Required]
+        [Display(Name = "Filmtitel")]
         public string Title { get; set; }
-        [Required] 
-        public int Year { get; set; }
-        [Required] 
+        [Required]
+        [Display(Name = "Längd")]
         public TimeSpan Length { get; set; }
         public virtual ICollection<FilmSchedule> FilmSchedule { get; set; }
     }

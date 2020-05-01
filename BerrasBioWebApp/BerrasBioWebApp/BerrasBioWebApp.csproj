@@ -5,34 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Migrations\20200421123701_RenamedProperties.cs" />
-    <Compile Remove="Migrations\20200421123701_RenamedProperties.Designer.cs" />
-    <Compile Remove="Migrations\20200421124524_AddedDbContextToDb.cs" />
-    <Compile Remove="Migrations\20200421124524_AddedDbContextToDb.Designer.cs" />
-    <Compile Remove="Migrations\20200426225303_AddedBookingToDb.cs" />
-    <Compile Remove="Migrations\20200426225303_AddedBookingToDb.Designer.cs" />
-    <Compile Remove="Migrations\20200426233024_AddedDbContextToDb.cs" />
-    <Compile Remove="Migrations\20200426233024_AddedDbContextToDb.Designer.cs" />
-    <Compile Remove="Migrations\20200426234256_AddedDbContextToDb.cs" />
-    <Compile Remove="Migrations\20200426234256_AddedDbContextToDb.Designer.cs" />
-    <Compile Remove="Migrations\20200426234922_AddedDbContextToDb.cs" />
-    <Compile Remove="Migrations\20200426234922_AddedDbContextToDb.Designer.cs" />
-    <Compile Remove="Migrations\20200426235527_AddedDbContextToDb.cs" />
-    <Compile Remove="Migrations\20200426235527_AddedDbContextToDb.Designer.cs" />
-    <Compile Remove="Migrations\20200429094311_adddbcontexttodb.cs" />
-    <Compile Remove="Migrations\20200429094311_adddbcontexttodb.Designer.cs" />
-    <Compile Remove="Migrations\20200429210904_AddedDbContextToDb.cs" />
-    <Compile Remove="Migrations\20200429210904_AddedDbContextToDb.Designer.cs" />
-    <Compile Remove="Migrations\20200429215911_AddedDbContextToDb.cs" />
-    <Compile Remove="Migrations\20200429215911_AddedDbContextToDb.Designer.cs" />
-    <Compile Remove="Migrations\20200429223627_AddedDbContextToDb.cs" />
-    <Compile Remove="Migrations\20200429223627_AddedDbContextToDb.Designer.cs" />
-    <Compile Remove="Migrations\20200429231043_AddedDbContextToDb.cs" />
-    <Compile Remove="Migrations\20200429231043_AddedDbContextToDb.Designer.cs" />
-    <Compile Remove="Migrations\20200429231751_AddedDbContextToDb.cs" />
-    <Compile Remove="Migrations\20200429231751_AddedDbContextToDb.Designer.cs" />
-    <Compile Remove="Migrations\20200430072613_AddedDbContextToDb.cs" />
-    <Compile Remove="Migrations\20200430072613_AddedDbContextToDb.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

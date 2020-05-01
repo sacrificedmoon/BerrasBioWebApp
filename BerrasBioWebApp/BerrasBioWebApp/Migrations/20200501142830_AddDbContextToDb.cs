@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace BerrasBioWebApp.Migrations
 {
-    public partial class AddedDbContextToDb : Migration
+    public partial class AddDbContextToDb : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -14,7 +14,6 @@ namespace BerrasBioWebApp.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Title = table.Column<string>(nullable: false),
-                    Year = table.Column<int>(nullable: false),
                     Length = table.Column<TimeSpan>(nullable: false)
                 },
                 constraints: table =>
@@ -73,7 +72,8 @@ namespace BerrasBioWebApp.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     FilmScheduleId = table.Column<int>(nullable: false),
                     Name = table.Column<string>(nullable: false),
-                    PhoneNumber = table.Column<int>(nullable: false)
+                    PhoneNumber = table.Column<string>(nullable: false),
+                    NumOfTickets = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
