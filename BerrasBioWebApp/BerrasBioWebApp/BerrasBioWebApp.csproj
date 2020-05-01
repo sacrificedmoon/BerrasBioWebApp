@@ -33,6 +33,12 @@
     <Compile Remove="Migrations\20200429231751_AddedDbContextToDb.Designer.cs" />
     <Compile Remove="Migrations\20200430072613_AddedDbContextToDb.cs" />
     <Compile Remove="Migrations\20200430072613_AddedDbContextToDb.Designer.cs" />
+    <Compile Remove="Migrations\20200430073340_AddedDbContextToDb.cs" />
+    <Compile Remove="Migrations\20200430073340_AddedDbContextToDb.Designer.cs" />
+    <Compile Remove="Migrations\20200501124552_AddDbContextToDb.cs" />
+    <Compile Remove="Migrations\20200501124552_AddDbContextToDb.Designer.cs" />
+    <Compile Remove="Migrations\20200501140110_AddDbContextToDb.cs" />
+    <Compile Remove="Migrations\20200501140110_AddDbContextToDb.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

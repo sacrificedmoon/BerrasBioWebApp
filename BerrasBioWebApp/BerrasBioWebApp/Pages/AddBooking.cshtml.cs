@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using BerrasBioWebApp;
+using System.ComponentModel.DataAnnotations;
+using Microsoft.EntityFrameworkCore;
 
 namespace BerrasBioWebApp.Pages
 {
@@ -19,12 +16,33 @@ namespace BerrasBioWebApp.Pages
         }
 
         [BindProperty]
-        public Booking Booking { get; set; }
+        public InputModel Input { get; set; }
+        [BindProperty]
         public FilmSchedule FilmSchedule { get; set; }
+
+        public class InputModel
+        {
+            [Required]
+            [Display(Name = "Antal biljetter")]
+            public int NumOfTickets { get; set; }
+
+            [Required]
+            [Display(Name = "Namn")]
+            public string Name { get; set; }
+
+            [Required]
+            [Display(Name = "Telefonnummer")]
+            [Range(10000000, 799999999, ErrorMessage = "The {0} must only contain numbers and be 9-10 digits long")]
+            [StringLength(10,ErrorMessage = "The {0} must only contain numbers and be {2}-{1} digits long", MinimumLength=9)]
+            public string PhoneNumber { get; set; }
+        }
 
         public async Task OnGetAsync(int id)
         {
-            FilmSchedule = await _db.FilmSchedule.FindAsync(id);
+            FilmSchedule = await _db.FilmSchedule
+                .Include(fs => fs.Film)
+                .Include(fs => fs.Salon)
+                .FirstOrDefaultAsync(fs => fs.Id == id);
         }
 
         public async Task<IActionResult> OnPostAsync()
@@ -34,7 +52,19 @@ namespace BerrasBioWebApp.Pages
                 return Page();
             }
 
-            _db.Booking.Add(Booking);
+            Booking booking = new Booking
+            {
+                FilmScheduleId = this.FilmSchedule.Id,
+                Name = Input.Name,
+                PhoneNumber = Input.PhoneNumber,
+                NumOfTickets = Input.NumOfTickets
+            };
+
+            _db.Booking.Add(booking);
+
+            FilmSchedule filmschedule = await _db.FilmSchedule.FindAsync(booking.FilmScheduleId);
+            filmschedule.FreeChairs -= Input.NumOfTickets;
+
             await _db.SaveChangesAsync();
 
             return RedirectToPage("./Index");

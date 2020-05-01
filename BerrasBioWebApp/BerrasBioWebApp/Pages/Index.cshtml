@@ -16,13 +16,16 @@
                         <table class="table table-striped border">
                             <tr class="table-secondary">
                                 <th>
-                                    <label asp-for="FilmSchedulesToday.FirstOrDefault().Film"></label>
+                                    <label asp-for="FilmSchedulesToday.FirstOrDefault().Film.Title"></label>
                                 </th>
                                 <th>
                                     <label asp-for="FilmSchedulesToday.FirstOrDefault().ShowTime"></label>
                                 </th>
                                 <th>
-                                    <label asp-for="FilmSchedulesToday.FirstOrDefault().Salon"></label>
+                                    <label asp-for="FilmSchedulesToday.FirstOrDefault().Film.Length"></label>
+                                </th>
+                                <th>
+                                    <label asp-for="FilmSchedulesToday.FirstOrDefault().Salon.Name"></label>
                                 </th>
                                 <th>
                                     <label asp-for="FilmSchedulesToday.FirstOrDefault().FreeChairs"></label>
@@ -36,7 +39,9 @@
                                     <td>@Html.DisplayFor(m => filmschedule.ShowTime.TimeOfDay)</td>
                                     <td>@Html.DisplayFor(m => filmschedule.Salon.Name)</td>
                                     <td>@Html.DisplayFor(m => filmschedule.FreeChairs)</td>
-                                    <td><a asp-page="AddBooking" asp-route-id="@filmschedule.Id" class="btn btn-success btn-sm">Book tickets</a></td>
+                                    <td>
+                                        <a asp-page="AddBooking" asp-route-id="@filmschedule.Id" class="btn btn-success btn-sm">Book tickets</a>
+                                    </td>
                                 </tr>
                              }
                         </table>

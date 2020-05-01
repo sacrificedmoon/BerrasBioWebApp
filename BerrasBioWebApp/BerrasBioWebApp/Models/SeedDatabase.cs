@@ -76,37 +76,31 @@ namespace BerrasBioWebApp
                 new Film
                 {
                     Title = "Casino Royale (Barry Nelson)",
-                    Year = 1954,
                     Length = TimeSpan.FromMinutes(60)
                 },
                 new Film
                 {
                     Title = "Goldenfinger (Sean Connery)",
-                    Year = 1964,
                     Length = TimeSpan.FromMinutes(110)
                 },
                 new Film
                 {
                     Title = "Live and Let Die (Roger Moore)",
-                    Year = 1973,
                     Length = TimeSpan.FromMinutes(120)
                 },
                 new Film
                 {
                     Title = "Octopussy (Roger Moore)",
-                    Year = 1983,
                     Length = TimeSpan.FromMinutes(130)
                 },
                 new Film
                 {
                     Title = "Tomorrow Never Dies (Pierce Brosnan)",
-                    Year = 1997,
                     Length = TimeSpan.FromMinutes(120)
                 },
                 new Film
                 {
                     Title = "Quantum of Solace (Daniel Craig)",
-                    Year = 2008,
                     Length = TimeSpan.FromMinutes(110)
                 }
             );
