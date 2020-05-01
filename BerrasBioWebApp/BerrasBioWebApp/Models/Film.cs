@@ -14,7 +14,6 @@ namespace BerrasBioWebApp
         public int Year { get; set; }
         [Required] 
         public TimeSpan Length { get; set; }
-
-        public ICollection<FilmSchedule> FilmSchedule { get; set; }
+        public virtual ICollection<FilmSchedule> FilmSchedule { get; set; }
     }
 }

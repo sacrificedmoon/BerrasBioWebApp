@@ -11,9 +11,35 @@
         <div class="container">
             <div class="col-12 border">
                 <form method="post">
-                    @if (Model.FilmSchedule.Count() > 0)
+                    @if (Model.FilmSchedulesToday.Count() > 0)
                     {
-                        
+                        <table class="table table-striped border">
+                            <tr class="table-secondary">
+                                <th>
+                                    <label asp-for="FilmSchedulesToday.FirstOrDefault().Film"></label>
+                                </th>
+                                <th>
+                                    <label asp-for="FilmSchedulesToday.FirstOrDefault().ShowTime"></label>
+                                </th>
+                                <th>
+                                    <label asp-for="FilmSchedulesToday.FirstOrDefault().Salon"></label>
+                                </th>
+                                <th>
+                                    <label asp-for="FilmSchedulesToday.FirstOrDefault().FreeChairs"></label>
+                                </th>
+                                <th></th>
+                            </tr>
+                            @foreach(var filmschedule in Model.FilmSchedulesToday)
+                            {
+                                <tr>
+                                    <td>@Html.DisplayFor(m => filmschedule.Film.Title)</td>
+                                    <td>@Html.DisplayFor(m => filmschedule.ShowTime.TimeOfDay)</td>
+                                    <td>@Html.DisplayFor(m => filmschedule.Salon.Name)</td>
+                                    <td>@Html.DisplayFor(m => filmschedule.FreeChairs)</td>
+                                    <td><a asp-page="AddBooking" asp-route-id="@filmschedule.Id" class="btn btn-success btn-sm">Book tickets</a></td>
+                                </tr>
+                             }
+                        </table>
                     }
                     else
                     {

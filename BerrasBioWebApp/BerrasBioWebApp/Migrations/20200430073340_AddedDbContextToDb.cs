@@ -44,10 +44,9 @@ namespace BerrasBioWebApp.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Filmid = table.Column<int>(nullable: false),
                     Salonid = table.Column<int>(nullable: false),
-                    Date = table.Column<DateTime>(nullable: false),
-                    Showtime = table.Column<TimeSpan>(nullable: false),
-                    Freechairs = table.Column<int>(nullable: false),
-                    Fullybooked = table.Column<bool>(nullable: false)
+                    ShowTime = table.Column<DateTime>(nullable: false),
+                    FreeChairs = table.Column<int>(nullable: false),
+                    IsFullyBooked = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>
                 {

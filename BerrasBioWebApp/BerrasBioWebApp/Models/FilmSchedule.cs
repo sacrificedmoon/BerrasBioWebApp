@@ -13,18 +13,13 @@ namespace BerrasBioWebApp
         [Required]
         public int Salonid { get; set; }
         [Required]
-        public DateTime Date { get; set; }
+        public DateTime ShowTime { get; set; }
         [Required]
-        public TimeSpan Showtime { get; set; }
+        public int FreeChairs { get; set; }
         [Required]
-        public int Freechairs { get; set; }
-        [Required]
-        public bool Fullybooked { get; set; }
-        [Required]
-        public Film Film { get; set; }
-        [Required]
-        public Salon Salon { get; set; }
-        [Required] 
-        public ICollection<Booking> Booking { get; set; }
+        public bool IsFullyBooked { get; set; }
+        public virtual Film Film { get; set; }
+        public virtual Salon Salon { get; set; }
+        public virtual ICollection<Booking> Booking { get; set; }
     }
 }
