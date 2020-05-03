@@ -11,18 +11,14 @@
         <div class="container">
             <div class="col-12 border">
                 <form method="post">
-                    @if (Model.FilmSchedulesToday.Count() > 0)
-                    {
-                        <table class="table table-striped border">
+                    <table id="myTable" class="table table-striped border">
+                        <thead>
                             <tr class="table-secondary">
                                 <th>
                                     <label asp-for="FilmSchedulesToday.FirstOrDefault().Film.Title"></label>
                                 </th>
                                 <th>
                                     <label asp-for="FilmSchedulesToday.FirstOrDefault().ShowTime"></label>
-                                </th>
-                                <th>
-                                    <label asp-for="FilmSchedulesToday.FirstOrDefault().Film.Length"></label>
                                 </th>
                                 <th>
                                     <label asp-for="FilmSchedulesToday.FirstOrDefault().Salon.Name"></label>
@@ -32,24 +28,38 @@
                                 </th>
                                 <th></th>
                             </tr>
+                        </thead>
+                        <tbody>
                             @foreach(var filmschedule in Model.FilmSchedulesToday)
                             {
-                                <tr>
-                                    <td>@Html.DisplayFor(m => filmschedule.Film.Title)</td>
-                                    <td>@Html.DisplayFor(m => filmschedule.ShowTime.TimeOfDay)</td>
-                                    <td>@Html.DisplayFor(m => filmschedule.Salon.Name)</td>
-                                    <td>@Html.DisplayFor(m => filmschedule.FreeChairs)</td>
+                                @if(!filmschedule.IsFullyBooked)
+                                {
+                            <tr>
+                                <td>@Html.DisplayFor(m => filmschedule.Film.Title)</td>
+                                <td>@Html.DisplayFor(m => filmschedule.ShowTime.ToString("HH:mm"))</td>
+                                @string.Format("{0:ddd}",Convert.ToDateTime(Html.DisplayFor(model => model.Booking.BookingFromDate).ToString()))
+                                <td>@Html.DisplayFor(m => filmschedule.Salon.Name)</td>
+                                <td>@Html.DisplayFor(m => filmschedule.FreeChairs)</td>
+                                <td>
+                                    <a asp-page="AddBooking" asp-route-id="@filmschedule.Id" class="btn btn-success btn-sm">Boka</a>
+                                </td>
+                            </tr>
+                                }
+                                else
+                                {
+                                <tr style="color: lightgray">
+                                    <td> @Html.DisplayFor(m => filmschedule.Film.Title) </td>
+                                    <td> @Html.DisplayFor(m => filmschedule.ShowTime.TimeOfDay) </td>
+                                    <td> @Html.DisplayFor(m => filmschedule.Salon.Name) </td>
+                                    <td> @Html.DisplayFor(m => filmschedule.FreeChairs) </td>
                                     <td>
-                                        <a asp-page="AddBooking" asp-route-id="@filmschedule.Id" class="btn btn-success btn-sm">Book tickets</a>
+                                        <button class="btn btn-danger btn-sm" disabled>Slutsåld</button>
                                     </td>
                                 </tr>
-                             }
-                        </table>
-                    }
-                    else
-                    {
-                        <p>No films today!</p>
-                    }
+                                }
+                            }
+                        </tbody>
+                    </table>
                 </form>
             </div>
         </div>
