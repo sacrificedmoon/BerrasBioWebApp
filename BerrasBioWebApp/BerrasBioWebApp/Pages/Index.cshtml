@@ -33,15 +33,15 @@
                             {
                                 @if(filmschedule.FreeChairs > 0)
                                 {
-                            <tr>
-                                <td>@filmschedule.Film.Title</td>
-                                <td>@filmschedule.ShowTime.ToString("HH:mm")</td>
-                                <td>@filmschedule.Salon.Name</td>
-                                <td>@filmschedule.FreeChairs</td>
-                                <td>
-                                    <a asp-page="AddBooking" asp-route-id="@filmschedule.Id" class="btn btn-success btn-sm">Boka</a>
-                                </td>
-                            </tr>
+                                <tr>
+                                    <td>@filmschedule.Film.Title</td>
+                                    <td>@filmschedule.ShowTime.ToString("HH:mm")</td>
+                                    <td>@filmschedule.Salon.Name</td>
+                                    <td>@filmschedule.FreeChairs</td>
+                                    <td>
+                                        <a asp-page="AddBooking" asp-route-id="@filmschedule.Id" class="btn btn-success btn-sm">Boka</a>
+                                    </td>
+                                </tr>
                                 }
                                 else
                                 {
