@@ -15,7 +15,7 @@
         <br />
         @if (!Model.uniquePhoneNumber)
         {
-        <div class="text-danger">You can only book one time per day and movie.</div>
+        <div class="text-danger">Du kan bara boka en film per dag/telefonnummer</div>
         }
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -40,15 +40,15 @@
                 <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Book" class="btn btn-primary" />
-                <a asp-page="Index" class="btn btn-danger">Back</a>
+                <input type="submit" value="Boka" class="btn btn-primary" />
+                <a asp-page="Index" class="btn btn-danger">Tillbaka</a>
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-page="Index">Back to start</a>
+    <a asp-page="Index">Tillbaka till start</a>
 </div>
 
 @if (!Model.uniquePhoneNumber)
