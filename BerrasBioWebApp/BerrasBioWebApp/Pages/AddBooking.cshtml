@@ -4,62 +4,45 @@
 @{
     ViewData["Title"] = "AddBooking";
 }
-
-<h4>Booking</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <div>@Model.FilmSchedule.Film.Title</div>
-        <div>@Model.FilmSchedule.Salon.Name</div>
-        <div>@Model.FilmSchedule.ShowTime.TimeOfDay</div>
-        <br />
-        @if (!Model.uniquePhoneNumber)
-        {
-        <div class="text-danger">You can only book one time per day and movie.</div>
-        }
-        <form method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Input.NumOfTickets" class="control-label"></label>
-                <select asp-for="Input.NumOfTickets" class="form-control">
-                    @for (int tickets = 1; tickets <= Math.Clamp(Model.FilmSchedule.FreeChairs, 1, 12); tickets++)
-                    {
-                    <option>@tickets</option>
-                    }
-                </select>
-                <span asp-validation-for="Input.NumOfTickets" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Input.Name" class="control-label"></label>
-                <input asp-for="Input.Name" class="form-control" />
-                <span asp-validation-for="Input.Name" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Input.PhoneNumber" class="control-label"></label>
-                <input asp-for="Input.PhoneNumber" class="form-control" />
-                <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Book" class="btn btn-primary" />
-                <a asp-page="Index" class="btn btn-danger">Back</a>
-            </div>
-        </form>
+<div>
+    <h2 class="display-4">Booking</h2>
+    <br />
+    <div class="row">
+        <div class="col-md-4">
+            <div>@Model.FilmSchedule.Film.Title</div>
+            <div>@Model.FilmSchedule.Salon.Name</div>
+            <div>@Model.FilmSchedule.ShowTime</div>
+            <br />
+            <form method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Input.NumOfTickets" class="control-label"></label>
+                    <select asp-for="Input.NumOfTickets" class="form-control">
+                        @for (int tickets = 1; tickets <= Math.Clamp(Model.FilmSchedule.FreeChairs, 1, 12); tickets++)
+                        {
+                        <option>@tickets</option>
+                        }
+                    </select>
+                    <span asp-validation-for="Input.NumOfTickets" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Input.Name" class="control-label"></label>
+                    <input asp-for="Input.Name" class="form-control" />
+                    <span asp-validation-for="Input.Name" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Input.PhoneNumber" class="control-label"></label>
+                    <input asp-for="Input.PhoneNumber" class="form-control" />
+                    <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                        <input type="submit" value="Boka" class="btn btn-primary" />
+                        <a asp-page="Index" class="btn btn-success">Huvudmenyn</a>
+                </div>
+            </form>
+        </div>
     </div>
 </div>
-
-<div>
-    <a asp-page="Index">Back to start</a>
-</div>
-
-@if (!Model.uniquePhoneNumber)
-{
-    <script type="text/javascript">
-
-            window.onload = function () {
-                alert("Du har redan bokat biljetter för denna visning!");
-            };
-    </script>
-}
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />

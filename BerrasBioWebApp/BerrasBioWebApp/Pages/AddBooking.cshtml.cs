@@ -9,7 +9,6 @@ namespace BerrasBioWebApp.Pages
     public class AddBookingModel : PageModel
     {
         private readonly BerrasBioDbContext _db;
-        public bool uniquePhoneNumber = true;
 
         public AddBookingModel(BerrasBioDbContext db)
         {
@@ -50,13 +49,11 @@ namespace BerrasBioWebApp.Pages
         {
             if (!ModelState.IsValid)
             {
-                return Page();
+                return RedirectToPage("AddBooking", FilmSchedule);
             }
 
-            uniquePhoneNumber = true;
-            if (await _db.Booking.AnyAsync(b => b.PhoneNumber == Input.PhoneNumber))
+            if (Input.NumOfTickets > 12)
             {
-                uniquePhoneNumber = false;
                 return RedirectToPage("AddBooking", FilmSchedule);
             }
 
@@ -76,8 +73,6 @@ namespace BerrasBioWebApp.Pages
             };
 
             _db.Booking.Add(booking);
-
-
             await _db.SaveChangesAsync();
 
             return RedirectToPage("BookingConfirmation", booking);
