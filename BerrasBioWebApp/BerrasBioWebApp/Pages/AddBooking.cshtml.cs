@@ -49,7 +49,19 @@ namespace BerrasBioWebApp.Pages
         {
             if (!ModelState.IsValid)
             {
-                return Page();
+                return RedirectToPage("AddBooking", FilmSchedule);
+            }
+
+            if (Input.NumOfTickets > 12)
+            {
+                return RedirectToPage("AddBooking", FilmSchedule);
+            }
+
+            FilmSchedule filmschedule = await _db.FilmSchedule.FindAsync(FilmSchedule.Id);
+            filmschedule.FreeChairs -= Input.NumOfTickets;
+            if (filmschedule.FreeChairs == 0)
+            {
+                FilmSchedule.IsFullyBooked = true;
             }
 
             Booking booking = new Booking
@@ -61,17 +73,9 @@ namespace BerrasBioWebApp.Pages
             };
 
             _db.Booking.Add(booking);
-
-            FilmSchedule filmschedule = await _db.FilmSchedule.FindAsync(booking.FilmScheduleId);
-            filmschedule.FreeChairs -= Input.NumOfTickets;
-            if (filmschedule.FreeChairs == 0)
-            {
-                filmschedule.IsFullyBooked = true;
-            }
-
             await _db.SaveChangesAsync();
 
-            return RedirectToPage("./Index");
+            return RedirectToPage("BookingConfirmation", booking);
         }
     }
 }

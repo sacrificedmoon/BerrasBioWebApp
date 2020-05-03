@@ -11,33 +11,22 @@ namespace BerrasBioWebApp.Pages
 {
     public class BookingConfirmationModel : PageModel
     {
-        private readonly BerrasBioWebApp.BerrasBioDbContext _context;
+        private readonly BerrasBioDbContext _db;
 
-        public BookingConfirmationModel(BerrasBioWebApp.BerrasBioDbContext context)
+        public BookingConfirmationModel(BerrasBioDbContext db)
         {
-            _context = context;
+            _db = db;
         }
 
         public Booking Booking { get; set; }
 
-        public async Task<IActionResult> OnGetAsync(int? id)
+        public async Task OnGetAsync(Booking booking)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            Booking = await _context.Booking
-                .Include(b => b.FilmSchedule)
-                .Include(b => b.FilmSchedule.Film)
-                .Include(b => b.FilmSchedule.Salon)
-                .FirstOrDefaultAsync(m => m.Id == id);
-
-            if (Booking == null)
-            {
-                return NotFound();
-            }
-            return Page();
+            Booking = await _db.Booking
+                .Include(b  =>  b.FilmSchedule)
+                .Include(b  =>  b.FilmSchedule.Film)
+                .Include(b  =>  b.FilmSchedule.Salon)
+                .FirstAsync(b  =>  b.Id == booking.Id);
         }
     }
 }
