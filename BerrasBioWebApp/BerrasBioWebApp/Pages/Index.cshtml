@@ -4,9 +4,8 @@
     ViewData["Title"] = "Berras Bio";
 }
 
-    <div class="text-center">
-        <h1 class="display-4 text-center">Dagens Filmer!</h1>
-        <br />
+    <div>
+        <h2 class="display-4">Today's Films</h2>
         <br />
         <div class="container">
             <div class="col-12 border">
@@ -35,10 +34,10 @@
                                 @if(!filmschedule.IsFullyBooked)
                                 {
                             <tr>
-                                <td>@Html.DisplayFor(m => filmschedule.Film.Title)</td>
-                                <td>@Html.DisplayFor(m => filmschedule.ShowTime)</td>
-                                <td>@Html.DisplayFor(m => filmschedule.Salon.Name)</td>
-                                <td>@Html.DisplayFor(m => filmschedule.FreeChairs)</td>
+                                <td>@filmschedule.Film.Title</td>
+                                <td>@filmschedule.ShowTime.ToString("HH:mm")</td>
+                                <td>@filmschedule.Salon.Name</td>
+                                <td>@filmschedule.FreeChairs</td>
                                 <td>
                                     <a asp-page="AddBooking" asp-route-id="@filmschedule.Id" class="btn btn-success btn-sm">Boka</a>
                                 </td>
@@ -47,10 +46,10 @@
                                 else
                                 {
                                 <tr style="color: lightgray">
-                                    <td> @Html.DisplayFor(m => filmschedule.Film.Title) </td>
-                                    <td> @Html.DisplayFor(m => filmschedule.ShowTime.TimeOfDay) </td>
-                                    <td> @Html.DisplayFor(m => filmschedule.Salon.Name) </td>
-                                    <td> @Html.DisplayFor(m => filmschedule.FreeChairs) </td>
+                                    <td> @filmschedule.Film.Title </td>
+                                    <td> @filmschedule.ShowTime.ToString("HH:mm") </td>
+                                    <td> @filmschedule.Salon.Name </td>
+                                    <td> @filmschedule.FreeChairs </td>
                                     <td>
                                         <button class="btn btn-danger btn-sm" disabled>Slutsåld</button>
                                     </td>
