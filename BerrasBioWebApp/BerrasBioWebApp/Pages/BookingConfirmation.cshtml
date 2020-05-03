@@ -15,31 +15,31 @@
             @Html.DisplayNameFor(model => model.Booking.Name)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Booking.Name)
+            @Model.Booking.Name
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Booking.PhoneNumber)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Booking.PhoneNumber)
+            @Model.Booking.PhoneNumber
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Booking.NumOfTickets)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Booking.NumOfTickets)
+            @Model.Booking.NumOfTickets
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Booking.FilmSchedule.Film)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Booking.FilmSchedule.Film.Title)
+            @Model.Booking.FilmSchedule.Film.Title
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Booking.FilmSchedule.ShowTime)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Booking.FilmSchedule.ShowTime)
+            @Model.Booking.FilmSchedule.ShowTime
         </dd>
     </dl>
 </div>

@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BerrasBioWebApp.Migrations
 {
     [DbContext(typeof(BerrasBioDbContext))]
-    [Migration("20200501142830_AddDbContextToDb")]
+    [Migration("20200503210744_AddDbContextToDb")]
     partial class AddDbContextToDb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -80,9 +80,6 @@ namespace BerrasBioWebApp.Migrations
 
                     b.Property<int>("FreeChairs")
                         .HasColumnType("int");
-
-                    b.Property<bool>("IsFullyBooked")
-                        .HasColumnType("bit");
 
                     b.Property<int>("Salonid")
                         .HasColumnType("int");

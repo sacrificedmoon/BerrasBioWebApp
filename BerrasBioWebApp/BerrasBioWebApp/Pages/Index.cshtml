@@ -31,7 +31,7 @@
                         <tbody>
                             @foreach(var filmschedule in Model.FilmSchedulesToday)
                             {
-                                @if(!filmschedule.IsFullyBooked)
+                                @if(filmschedule.FreeChairs > 0)
                                 {
                             <tr>
                                 <td>@filmschedule.Film.Title</td>

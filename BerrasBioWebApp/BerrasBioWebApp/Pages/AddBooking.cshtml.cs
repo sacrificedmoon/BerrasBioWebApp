@@ -59,10 +59,6 @@ namespace BerrasBioWebApp.Pages
 
             FilmSchedule filmschedule = await _db.FilmSchedule.FindAsync(FilmSchedule.Id);
             filmschedule.FreeChairs -= Input.NumOfTickets;
-            if (filmschedule.FreeChairs == 0)
-            {
-                FilmSchedule.IsFullyBooked = true;
-            }
 
             Booking booking = new Booking
             {

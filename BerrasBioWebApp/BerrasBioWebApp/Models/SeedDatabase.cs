@@ -17,8 +17,7 @@ namespace BerrasBioWebApp
                     Filmid = 1,
                     Salonid = 1,
                     ShowTime = DateTime.Today.AddHours(16),
-                    FreeChairs = 50,
-                    IsFullyBooked = false
+                    FreeChairs = 50
                 },
 
                 new FilmSchedule
@@ -26,8 +25,7 @@ namespace BerrasBioWebApp
                     Filmid = 2,
                     Salonid = 2,
                     ShowTime = DateTime.Today.AddHours(16),
-                    FreeChairs = 100,
-                    IsFullyBooked = false
+                    FreeChairs = 100
                 },
 
                 new FilmSchedule
@@ -35,8 +33,7 @@ namespace BerrasBioWebApp
                     Filmid = 3,
                     Salonid = 1,
                     ShowTime = DateTime.Today.AddHours(18).AddMinutes(30),
-                    FreeChairs = 50,
-                    IsFullyBooked = false
+                    FreeChairs = 50
                 },
 
                 new FilmSchedule
@@ -44,8 +41,7 @@ namespace BerrasBioWebApp
                     Filmid = 4,
                     Salonid = 2,
                     ShowTime = DateTime.Today.AddHours(18).AddMinutes(30),
-                    FreeChairs = 100,
-                    IsFullyBooked = false
+                    FreeChairs = 100
                 },
 
 
@@ -54,8 +50,7 @@ namespace BerrasBioWebApp
                     Filmid = 5,
                     Salonid = 1,
                     ShowTime = DateTime.Today.AddHours(21),
-                    FreeChairs = 50,
-                    IsFullyBooked = false
+                    FreeChairs = 50
                 },
 
                 new FilmSchedule
@@ -63,8 +58,7 @@ namespace BerrasBioWebApp
                     Filmid = 6,
                     Salonid = 2,
                     ShowTime = DateTime.Today.AddHours(21),
-                    FreeChairs = 100,
-                    IsFullyBooked = false
+                    FreeChairs = 100
                 }
             );
             await db.SaveChangesAsync();

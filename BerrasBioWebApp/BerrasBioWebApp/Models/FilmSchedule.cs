@@ -18,8 +18,6 @@ namespace BerrasBioWebApp
         [Required]
         [Display(Name = "Lediga platser")]
         public int FreeChairs { get; set; }
-        [Required]
-        public bool IsFullyBooked { get; set; }
         public virtual Film Film { get; set; }
         public virtual Salon Salon { get; set; }
         public virtual ICollection<Booking> Booking { get; set; }
