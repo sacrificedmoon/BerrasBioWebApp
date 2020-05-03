@@ -44,8 +44,7 @@ namespace BerrasBioWebApp.Migrations
                     Filmid = table.Column<int>(nullable: false),
                     Salonid = table.Column<int>(nullable: false),
                     ShowTime = table.Column<DateTime>(nullable: false),
-                    FreeChairs = table.Column<int>(nullable: false),
-                    IsFullyBooked = table.Column<bool>(nullable: false)
+                    FreeChairs = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {

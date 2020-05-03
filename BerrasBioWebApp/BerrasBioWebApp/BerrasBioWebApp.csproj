@@ -5,6 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20200501142830_AddDbContextToDb.cs" />
+    <Compile Remove="Migrations\20200501142830_AddDbContextToDb.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

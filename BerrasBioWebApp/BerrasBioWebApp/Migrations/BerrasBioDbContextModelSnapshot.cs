@@ -79,9 +79,6 @@ namespace BerrasBioWebApp.Migrations
                     b.Property<int>("FreeChairs")
                         .HasColumnType("int");
 
-                    b.Property<bool>("IsFullyBooked")
-                        .HasColumnType("bit");
-
                     b.Property<int>("Salonid")
                         .HasColumnType("int");
 
